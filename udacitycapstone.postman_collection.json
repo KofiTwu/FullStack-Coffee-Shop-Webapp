@@ -1,0 +1,1263 @@
+{
+  "info": {
+    "_postman_id": "f652f16b-a68e-4290-828f-aaa59da50b89",
+    "name": "udacitycapstone",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "casting_assistant",
+      "item": [
+        {
+          "name": "/movies",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"value contains drinks array\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.movies).to.be.an('array')\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Billie Elish\",\r\n    \"age\": 23,\r\n    \"gender\": \"Female\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/movies",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["movies"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/movies/2",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"value contains json object\", function () {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.json;\r",
+                  "    pm.response.to.have.jsonBody(\"movie\");\r",
+                  "    pm.response.to.not.have.jsonBody(\"error\");\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:5000/movies/2",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["movies", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/movies",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Dr Strange\",\r\n    \"duration\": 3,\r\n    \"release_year\": 2016\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/movies",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["movies"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/movies/6",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Dr Strange I\",\r\n    \"duration\": 3,\r\n    \"release_year\": 2016\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/movies/10",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["movies", "10"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/movies/7",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:5000/movies/8",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["movies", "8"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/actors",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"value contains actors array\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.actors).to.be.an('array')\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:5000/actors",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["actors"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/actors/2",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"value contains json object\", function () {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.json;\r",
+                  "    pm.response.to.have.jsonBody(\"success\");\r",
+                  "    pm.response.to.have.jsonBody(\"actor\");\r",
+                  "    pm.response.to.not.have.jsonBody(\"error\");\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/actors/2",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["actors", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/actors",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"Austin Keb\",\r\n    \"age\": 32,\r\n    \"gender\": \"male\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/actors",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["actors"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/actors/13",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"Richard Fox\",\r\n    \"age\": 22,\r\n    \"gender\": \"male\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/actors/13",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["actors", "13"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/actors/12",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:5000/actors/12",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["actors", "12"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IldhMGNPMWJTcGN0dVdxMXYyWUZuQiJ9.eyJpc3MiOiJodHRwczovL215YXV0aC1pZGVuLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MDUzZTNhNGVhYWM5NDAwNjdmNmU0YzUiLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTYxNjI4MDE2NiwiZXhwIjoxNjE2MzE2MTY2LCJhenAiOiJ5c2tMUm8wRm9kQUREbnFlTjZkQ3pQYTRRSzB1RDJiZCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmFjdG9ycyIsImdldDphY3RvcnMtaW5mbyIsImdldDptb3ZpZXMiLCJnZXQ6bW92aWVzLWluZm8iXX0.GN5vPeckANnNLs5b07IgvmR4Nh6gjT4E0RYPSKRCpfANkI9JlY9VK5Dy4PyEy2WOfRHEsS5cDZ5tcbRn8m6ehuPJzYHArP63HMHjmMNT5kbB-F7stviY8pK_a5sPGZeeNwjslufM9_IvMBDQDmjTWqdJDRA3oifM4ZmpGRH6F8QgqWVkcOdhcXC0C0Sq7H6k2vSziobbr9PtusAco2qYmqthkYR3nLGapMyxVV5Q750OriZXEFkOiBKdCumhJur5XR3ev1fU79ErQi0PIrcmueFk1x0JI7SqNnT_CF9CnmmFxi04MeZVE9Ym7Uh1kAWbbcf76d4sxzcAg7ioCNQfdA",
+            "type": "string"
+          }
+        ]
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        }
+      ]
+    },
+    {
+      "name": "casting_director",
+      "item": [
+        {
+          "name": "/movies",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"value contains drinks array\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.movies).to.be.an('array')\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Billie Elish\",\r\n    \"age\": 23,\r\n    \"gender\": \"Female\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/movies",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["movies"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/movies/2",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"value contains json object\", function () {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.json;\r",
+                  "    pm.response.to.have.jsonBody(\"movie\");\r",
+                  "    pm.response.to.not.have.jsonBody(\"error\");\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:5000/movies/2",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["movies", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/movies",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Dr Strange\",\r\n    \"duration\": 3,\r\n    \"release_year\": 2016\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/movies",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["movies"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/movies/6",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.json;\r",
+                  "    pm.response.to.have.jsonBody(\"updated_movie\");\r",
+                  "    pm.response.to.have.jsonBody(\"success\");\r",
+                  "    pm.response.to.have.jsonBody(\"total_movies\");\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Dr Strange I\",\r\n    \"duration\": 3,\r\n    \"release_year\": 2016\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/movies/10",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["movies", "10"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/movies/7",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:5000/movies/8",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["movies", "8"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/actors",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"value contains actors array\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.actors).to.be.an('array')\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:5000/actors",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["actors"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/actors/2",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"value contains json object\", function () {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.json;\r",
+                  "    pm.response.to.have.jsonBody(\"success\");\r",
+                  "    pm.response.to.have.jsonBody(\"actor\");\r",
+                  "    pm.response.to.not.have.jsonBody(\"error\");\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/actors/2",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["actors", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/actors",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "\r",
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.json;\r",
+                  "    pm.response.to.have.jsonBody(\"created_actor\");\r",
+                  "    pm.response.to.have.jsonBody(\"success\");\r",
+                  "    pm.response.to.have.jsonBody(\"total_actors\");\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"Austin Keb\",\r\n    \"age\": 32,\r\n    \"gender\": \"male\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/actors",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["actors"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/actors/13",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.be.json;\r",
+                  "    pm.response.to.have.jsonBody(\"error\");\r",
+                  "    pm.response.to.have.jsonBody(\"success\");\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"Richard Fox\",\r\n    \"age\": 22,\r\n    \"gender\": \"male\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/actors/13",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["actors", "13"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/actors/12",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.be.json;\r",
+                  "    pm.response.to.have.jsonBody(\"error\");\r",
+                  "    pm.response.to.have.jsonBody(\"success\");\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:5000/actors/12",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["actors", "12"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IldhMGNPMWJTcGN0dVdxMXYyWUZuQiJ9.eyJpc3MiOiJodHRwczovL215YXV0aC1pZGVuLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MDUzZTNiYzg4MjI0MzAwNjg4ZjkwMTQiLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTYxNjI4MDA3NywiZXhwIjoxNjE2MzE2MDc3LCJhenAiOiJ5c2tMUm8wRm9kQUREbnFlTjZkQ3pQYTRRSzB1RDJiZCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImdldDphY3RvcnMiLCJnZXQ6YWN0b3JzLWluZm8iLCJnZXQ6bW92aWVzIiwiZ2V0Om1vdmllcy1pbmZvIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.sCnnKsGGs572ghBvGgdZPzDby2x-KLyrzS9VFRMLgd9thjYanoTEky7QQvnNr_SNiOB9TEMMd16tz0udmIdPoyNr_YGi3Uzt2tv7Evn0gwJ-ch3xWHpK-WhOdF78yXjT2kloCKKDCHQvKXc0VrTB8LOJ8PsEqp7qM292ih2eGYtz3SGIkmgg0_OCTjBY8G_B9OT7YdJ6FOg5wkbGMkkHdh8prndJnhd7soAUK6JVnkWHFBMHYzqZuQDGFPd3X_DuKSTbPu06GeXxZenfp1lZtJ1BnUtty-ZO9nhN1x66kjXoSfQgdBBGfdzxsNMbC8SuL6PaMnbhHy-cNOEfyOmp1Q",
+            "type": "string"
+          }
+        ]
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        }
+      ]
+    },
+    {
+      "name": "executive_producer",
+      "item": [
+        {
+          "name": "/movies",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"value contains drinks array\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.movies).to.be.an('array')\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Billie Elish\",\r\n    \"age\": 23,\r\n    \"gender\": \"Female\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/movies",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["movies"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/movies/2",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"value contains json object\", function () {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.json;\r",
+                  "    pm.response.to.have.jsonBody(\"movie\");\r",
+                  "    pm.response.to.not.have.jsonBody(\"error\");\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:5000/movies/2",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["movies", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/movies",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "\r",
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.json;\r",
+                  "    pm.response.to.have.jsonBody(\"created_movie\");\r",
+                  "    pm.response.to.have.jsonBody(\"success\");\r",
+                  "    pm.response.to.have.jsonBody(\"total_movies\");\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Dr Strange\",\r\n    \"duration\": 3,\r\n    \"release_year\": 2016\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/movies",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["movies"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/movies/6",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.json;\r",
+                  "    pm.response.to.have.jsonBody(\"updated_movie\");\r",
+                  "    pm.response.to.have.jsonBody(\"success\");\r",
+                  "    pm.response.to.have.jsonBody(\"total_movies\");\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"Dr Strange I\",\r\n    \"duration\": 3,\r\n    \"release_year\": 2016\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/movies/10",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["movies", "10"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/movies/7",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.be.json;\r",
+                  "    pm.response.to.have.jsonBody(\"error\");\r",
+                  "    pm.response.to.have.jsonBody(\"success\");\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:5000/movies/8",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["movies", "8"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/actors",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"value contains actors array\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.actors).to.be.an('array')\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:5000/actors",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["actors"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/actors/2",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"value contains json object\", function () {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.json;\r",
+                  "    pm.response.to.have.jsonBody(\"success\");\r",
+                  "    pm.response.to.have.jsonBody(\"actor\");\r",
+                  "    pm.response.to.not.have.jsonBody(\"error\");\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/actors/2",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["actors", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/actors",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "\r",
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.be.ok;\r",
+                  "    pm.response.to.be.json;\r",
+                  "    pm.response.to.have.jsonBody(\"created_actor\");\r",
+                  "    pm.response.to.have.jsonBody(\"success\");\r",
+                  "    pm.response.to.have.jsonBody(\"total_actors\");\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"Austin Keb\",\r\n    \"age\": 32,\r\n    \"gender\": \"male\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/actors",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["actors"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/actors/13",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.be.json;\r",
+                  "    pm.response.to.have.jsonBody(\"error\");\r",
+                  "    pm.response.to.have.jsonBody(\"success\");\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\":\"Richard Fox\",\r\n    \"age\": 22,\r\n    \"gender\": \"male\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://127.0.0.1:5000/actors/13",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["actors", "13"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "/actors/12",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(404);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.be.json;\r",
+                  "    pm.response.to.have.jsonBody(\"error\");\r",
+                  "    pm.response.to.have.jsonBody(\"success\");\r",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://127.0.0.1:5000/actors/12",
+              "protocol": "http",
+              "host": ["127", "0", "0", "1"],
+              "port": "5000",
+              "path": ["actors", "12"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IldhMGNPMWJTcGN0dVdxMXYyWUZuQiJ9.eyJpc3MiOiJodHRwczovL215YXV0aC1pZGVuLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MDUzZTNkZGU0MWFlMDAwNmIyMGZmNjMiLCJhdWQiOiJjYXBzdG9uZSIsImlhdCI6MTYxNjI3OTk3NCwiZXhwIjoxNjE2MzE1OTc0LCJhenAiOiJ5c2tMUm8wRm9kQUREbnFlTjZkQ3pQYTRRSzB1RDJiZCIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0OmFjdG9ycy1pbmZvIiwiZ2V0Om1vdmllcyIsImdldDptb3ZpZXMtaW5mbyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.hdfWX1l8-le7pZFIBIMKW5PVU8MnWQy0TjMD1mTGvDStbQxdPR0vlz4EL9lTDbm-n8Q3iasq5LQTiTKfkuosqxJGv7VAVs60zkbFVm3v-1Vsa7zSplKy6-r8l4kosyrTE5r_YvOjg0_7aKAAyJMSsD28-KoGj56XtG4ZcyHjT3EQ5khBYNpHR-6nJiBEDe_Q34QR_RRnrDEL4BB8fsLXmrz09caMzEyi2bosrMsIpiW98AeDLKeJccHIVige-okuNP_zEJ5wUX5HyDnNgQfkOSArZp9pmGEgGMRXKpYh78XWEoduzAUP5hDRfu6fa-67mc3KVbfPRMZ9NUpeuPxWAA",
+            "type": "string"
+          }
+        ]
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        }
+      ]
+    }
+  ]
+}
